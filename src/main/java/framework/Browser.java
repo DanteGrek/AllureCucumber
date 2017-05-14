@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * Created by dante on 5/9/17.
  */
-public class Browser {
+public final class Browser {
 
     private static WebDriver driver;
 
@@ -37,5 +37,11 @@ public class Browser {
         }
     }
 
+    public static void main(String[] args) {
+        Browser.startChrome();
+        Browser.setUrl("https://www.google.com");
+        System.out.println(Browser.getInstance().getCurrentUrl().equals("https://www.google.com"));
+        Browser.tearDown();
+    }
 
 }
